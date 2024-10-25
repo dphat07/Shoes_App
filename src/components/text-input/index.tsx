@@ -29,7 +29,7 @@ export default function TextInputComponent(props: InputProps, ref: any) {
     errorStyle,
     showError,
     inputContainerStyle = {
-      borderRadius: 8,
+      borderRadius: 50,
     },
     style,
     size = 15,
@@ -224,8 +224,8 @@ export default function TextInputComponent(props: InputProps, ref: any) {
               : !hideFocus && showError
               ? theme.colors.red_500
               : isFocused
-              ? theme.colors.blue_500
-              : theme.colors.gray41,
+              ? theme.colors.blue5B
+              : theme.colors.white,
             borderWidth: boderSearch ? 0 : 1,
           },
           inputContainerStyle,

@@ -1,4 +1,3 @@
-import { localImages } from "@assets/images";
 import Block from "@components/block";
 import Button from "@components/button";
 import Text from "@components/text";
@@ -24,19 +23,6 @@ function OnBoardScreen({
   return (
     <Block style={styles.container}>
       <Block>
-        <Text
-          style={{
-            position: "absolute",
-            opacity: 0.1,
-            color: "black",
-            fontSize: 40,
-            justifyContent: "center",
-            width: 100,
-            height: 100,
-          }}
-        >
-          NIKE
-        </Text>
         <Image
           source={imageSource}
           style={{

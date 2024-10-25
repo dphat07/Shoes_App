@@ -40,6 +40,8 @@ const Colors = {
   red10: "#FFF6F6",
   blue10: "#F2F7FF",
   shadow: "#20496D1A",
+  whiteF5: "#F5F5F5",
+  blue5B: "#5B9EE1",
   // Rose colors
   rose_50: "#fff1f2",
   rose_100: "#ffe4e6",
