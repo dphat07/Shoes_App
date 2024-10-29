@@ -26,6 +26,11 @@ function SignIn({ navigation }) {
   return (
     <MainContainer edges={EDGES.LEFT_RIGHT}>
       <Block style={styles.container} backgroundColor={"whiteF5"}>
+        <Block pl="_20" pt={"_80"}>
+          <TouchableOpacity onPress={() => navigation.goBack()}>
+            <Image source={localImages().ic_back}></Image>
+          </TouchableOpacity>
+        </Block>
         <Text style={styles.headerText}>Hello Again!</Text>
         <Text style={[styles.subHeaderText, { marginBottom: 40 }]}>
           Welcome Back You've Been Missed!
@@ -117,7 +122,6 @@ export default memo(SignIn);
 const useStyle = makeStyles((theme) => ({
   container: {
     flex: 1,
-    paddingTop: 150,
   },
 
   headerText: {

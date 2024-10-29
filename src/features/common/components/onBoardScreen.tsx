@@ -1,7 +1,9 @@
 import Block from "@components/block";
 import Button from "@components/button";
+import MainContainer from "@components/main-container";
 import Text from "@components/text";
 import { makeStyles } from "@theme";
+import { EDGES } from "@utils/helper";
 import { Image, ImageSourcePropType } from "react-native";
 
 type OnBoardingProps = {
@@ -21,47 +23,49 @@ function OnBoardScreen({
 }: OnBoardingProps) {
   const styles = useStyle();
   return (
-    <Block style={styles.container}>
-      <Block>
-        <Image
-          source={imageSource}
-          style={{
-            resizeMode: "contain",
-            alignItems: "center",
+    <MainContainer edges={EDGES.LEFT_RIGHT}>
+      <Block style={styles.container}>
+        <Block>
+          <Image
+            source={imageSource}
+            style={{
+              resizeMode: "contain",
+              alignItems: "center",
 
-            height: 250,
-            marginTop: 200,
-            marginBottom: 100,
-            marginHorizontal: 30,
-          }}
-        />
+              height: 250,
+              marginTop: 200,
+              marginBottom: 70,
+              marginHorizontal: 30,
+            }}
+          />
+        </Block>
+        <Block style={{ paddingBottom: 120 }}>
+          <Text style={styles.title}>{title}</Text>
+          <Text style={styles.description}>{description}</Text>
+        </Block>
+        <Block>
+          <Button
+            label={buttonText}
+            onPress={onPress}
+            style={{
+              backgroundColor: "#5B9EE1",
+              borderColor: "#5B9EE1",
+              borderRadius: 50,
+              width: 165,
+              height: 54,
+              alignItems: "center",
+              justifyContent: "center",
+              alignSelf: "flex-end",
+              marginRight: 20,
+            }}
+            textStyle={{
+              color: "white",
+              fontWeight: "bold",
+            }}
+          ></Button>
+        </Block>
       </Block>
-      <Block style={{ paddingBottom: 120 }}>
-        <Text style={styles.title}>{title}</Text>
-        <Text style={styles.description}>{description}</Text>
-      </Block>
-      <Block>
-        <Button
-          label={buttonText}
-          onPress={onPress}
-          style={{
-            backgroundColor: "#5B9EE1",
-            borderColor: "#5B9EE1",
-            borderRadius: 50,
-            width: 165,
-            height: 54,
-            alignItems: "center",
-            justifyContent: "center",
-            alignSelf: "flex-end",
-            marginRight: 20,
-          }}
-          textStyle={{
-            color: "white",
-            fontWeight: "bold",
-          }}
-        ></Button>
-      </Block>
-    </Block>
+    </MainContainer>
   );
 }
 
