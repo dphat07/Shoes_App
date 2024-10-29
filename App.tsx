@@ -14,28 +14,31 @@ import { CategoryProvider } from "@components/context/categoriesContext";
 export default function App() {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const handleNext = () => {
+  const handleNext = (navigation: any) => {
     if (currentIndex < onBoardingData.length - 1) {
       setCurrentIndex(currentIndex + 1);
-      console.log(currentIndex);
+    } else {
+      navigation.navigate("SignIn");
     }
   };
-
-  const Tab = createBottomTabNavigator();
 
   const Stack = createNativeStackNavigator();
   return (
     <ThemeProvider theme={theme}>
       <CategoryProvider>
         <NavigationContainer>
-          {/* <OnBoardScreen
-        imageSource={onBoardingData[currentIndex].imageSource}
-        title={onBoardingData[currentIndex].title}
-        description={onBoardingData[currentIndex].description}
-        buttonText={currentIndex === 0 ? "Get Started" : "Next"}
-        onPress={handleNext}
-        /> */}
           <Stack.Navigator>
+            <Stack.Screen name="OnBoard" options={{ headerShown: false }}>
+              {({ navigation }) => (
+                <OnBoardScreen
+                  imageSource={onBoardingData[currentIndex].imageSource}
+                  title={onBoardingData[currentIndex].title}
+                  description={onBoardingData[currentIndex].description}
+                  buttonText={currentIndex === 0 ? "Get Started" : "Next"}
+                  onPress={() => handleNext(navigation)}
+                />
+              )}
+            </Stack.Screen>
             <Stack.Screen
               name="SignIn"
               component={SignIn}
